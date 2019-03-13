@@ -7,7 +7,7 @@ class get_photos(object):
 		self.photos_id = []
 		self.download_server = 'https://unsplash.com/photos/xxx/download?force=trues'
 		self.target = 'http://unsplash.com/napi/photos'
-		self.headers = {'ugid':'d7dff8baebbc73f37b8e2e413fe954b85174688'}
+		self.headers = {'ugid':'????'}
 	def get_ids(self):
 		req = requests.get(url=self.target, headers=self.headers, verify=False)
 		html = json.loads(req.text)
@@ -18,7 +18,7 @@ class get_photos(object):
 		 #time.sleep(1)
 
 	def download(self, photo_id, filename):
-		headers = {'user-agent':'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36','ugid':'d7dff8baebbc73f37b8e2e413fe954b85174688'}
+		headers = {'user-agent':'???','ugid':'???'}
 		target = self.download_server.replace('xxx', photo_id)
 		with closing(requests.get(url=target, stream=True, verify = False, headers = self.headers)) as r:
 			with open('%d.jpg' % filename, 'ab+') as f:
